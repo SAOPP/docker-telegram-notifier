@@ -150,6 +150,14 @@ services:
 ```
 For docker-compose examples see comments in [docker-compose.yml](./docker-compose.yml) file also.
 
+## Run For Local Testing
+
+When working with the code it is convenient and faster to build and run containers locally instead of having to build and deploy it to some hosting. To do this run following steps:
+
+1. In the project root directory build image: `docker build . --tag=docker-test`
+2. Run it: ```docker run -d --env TELEGRAM_NOTIFIER_BOT_TOKEN=XXXXX --env TELEGRAM_NOTIFIER_CHAT_ID=YYYYYY --env DOCKER_HOSTNAME=some-hostname --env DOCKER_IP_ADDRESS=127.0.0.1 --volume /var/run/docker.sock:/var/run/docker.sock:ro docker-test```
+3. Run any other docker container, for example: `docker run hello-world`
+
 ## Credits
 
 [arefaslani](https://github.com/arefaslani) for original idea.<br>

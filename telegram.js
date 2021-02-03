@@ -1,4 +1,5 @@
 const Telegram = require('telegraf/telegram');
+const utils = require('./utils');
 
 class TelegramClient {
   constructor() {
@@ -16,7 +17,8 @@ class TelegramClient {
   sendError(e) {
     return this.telegram.sendMessage(
         process.env.TELEGRAM_NOTIFIER_CHAT_ID,
-        `Error: ${e}`,
+        `<b>Host:</b> ${utils.getHostDetails()}\n<b>Error:</b> ${e}`,
+        { parse_mode: 'HTML' }
     );
   }
 

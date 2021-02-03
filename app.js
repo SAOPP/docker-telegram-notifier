@@ -70,7 +70,7 @@ async function healthcheck() {
 }
 
 function handleError(e) {
-  console.error(e);
+  console.error(`${utils.getHostDetails()}: ${e}`);
   telegram.sendError(e).catch(console.error);
 }
 
